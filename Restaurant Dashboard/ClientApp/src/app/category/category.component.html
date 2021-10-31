@@ -1,0 +1,55 @@
+<div class="category-gread">
+  <app-category-item
+    [name]="category.name"
+    [imgUrl]="category.imgUrl"
+  >
+  </app-category-item>
+  <app-category-item
+    [name]="category.name"
+    [imgUrl]="category.imgUrl"
+  >
+  </app-category-item>
+  <app-category-item
+    [name]="category.name"
+    [imgUrl]="category.imgUrl"
+  >
+  </app-category-item>
+  <app-category-item
+    [name]="category.name"
+    [imgUrl]="category.imgUrl"
+  >
+  </app-category-item>
+  <app-category-item
+    [name]="category.name"
+    [imgUrl]="category.imgUrl"
+  >
+  </app-category-item>
+  <app-category-item
+    [name]="category.name"
+    [imgUrl]="category.imgUrl"
+  >
+  </app-category-item>
+  <app-category-item
+    [name]="category.name"
+    [imgUrl]="category.imgUrl"
+    (click)="openModal('craete-edit-modal')"
+  >
+  </app-category-item>
+</div>
+
+<jw-modal id="craete-edit-modal">
+  <div header>
+    <button (click)="closeModal('craete-edit-modal');">Close</button>
+  </div>
+  <div body>
+    <div class="mb-3" *ngIf="categoryForCreate">
+      <label for="formGroupExampleInput" class="form-label">Category name</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Category name" [(ngModel)]="categoryForCreate.name">
+    </div>
+
+    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+
+    <button type="submit" class="btn btn-primary" (click)="craeteCategory()" >Submit</button>
+  </div>
+</jw-modal>
+

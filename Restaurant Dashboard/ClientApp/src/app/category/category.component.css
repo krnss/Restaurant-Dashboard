@@ -1,0 +1,10 @@
+.category-gread{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+}
+.modal-none{
+  text-align:center;
+  display: none;
+}

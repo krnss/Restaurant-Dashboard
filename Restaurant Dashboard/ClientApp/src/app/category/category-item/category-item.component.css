@@ -1,0 +1,12 @@
+.category-item{
+  width: 200px;
+  padding: 20px;
+  border: solid;
+  border-radius: 15px;
+  display: block;
+  height: 200px;
+}
+img{
+  height: 90%;
+  width: 100%;
+}
