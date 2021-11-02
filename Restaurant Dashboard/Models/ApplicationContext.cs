@@ -15,5 +15,6 @@ namespace Restaurant_Dashboard.Models
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

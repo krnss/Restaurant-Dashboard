@@ -31,9 +31,11 @@ export class DataService implements IDataService {
   }
 
   saveImg(file:File){
-    return this.http.post("/api/img",file);
-  }
+    const formData = new FormData();
+    formData.append('ImageFile', file);
 
+    return this.http.post('/api/upload', formData);
+  }
 
   public setUrl(url){
     this._url = url

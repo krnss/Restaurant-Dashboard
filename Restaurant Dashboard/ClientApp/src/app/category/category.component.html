@@ -1,40 +1,22 @@
+<div class="add p-3">
+  <div>
+    <button type="button" class="btn btn-success" (click)="openModal('craete-edit-modal')">Add Catecory</button>
+  </div>
+</div>
 <div class="category-gread">
   <app-category-item
     [name]="category.name"
     [imgUrl]="category.imgUrl"
   >
   </app-category-item>
-  <app-category-item
-    [name]="category.name"
-    [imgUrl]="category.imgUrl"
+  <app-category-item *ngFor="let cat of categories"
+    [name]="cat.name"
+    [imgUrl]="cat.imgUrl"
   >
   </app-category-item>
-  <app-category-item
-    [name]="category.name"
-    [imgUrl]="category.imgUrl"
-  >
-  </app-category-item>
-  <app-category-item
-    [name]="category.name"
-    [imgUrl]="category.imgUrl"
-  >
-  </app-category-item>
-  <app-category-item
-    [name]="category.name"
-    [imgUrl]="category.imgUrl"
-  >
-  </app-category-item>
-  <app-category-item
-    [name]="category.name"
-    [imgUrl]="category.imgUrl"
-  >
-  </app-category-item>
-  <app-category-item
-    [name]="category.name"
-    [imgUrl]="category.imgUrl"
-    (click)="openModal('craete-edit-modal')"
-  >
-  </app-category-item>
+
+
+
 </div>
 
 <jw-modal id="craete-edit-modal">
@@ -42,14 +24,10 @@
     <button (click)="closeModal('craete-edit-modal');">Close</button>
   </div>
   <div body>
-    <div class="mb-3" *ngIf="categoryForCreate">
-      <label for="formGroupExampleInput" class="form-label">Category name</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Category name" [(ngModel)]="categoryForCreate.name">
-    </div>
+    <app-category-create-modal
+    (createNewCategory)="loadAllData()">
 
-    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
-
-    <button type="submit" class="btn btn-primary" (click)="craeteCategory()" >Submit</button>
+    </app-category-create-modal>
   </div>
 </jw-modal>
 

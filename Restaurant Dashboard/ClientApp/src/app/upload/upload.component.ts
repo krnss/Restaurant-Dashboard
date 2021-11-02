@@ -16,18 +16,5 @@ export class UploadComponent implements OnInit {
   constructor(private http: HttpClient) { }
   ngOnInit() {
   }
-  public uploadFile = (files) => {
-    if (files.length != 1) {
-      this.message = "eror";
-      return;
-    }
-    const formData = new FormData();
-    formData.append('ImageFile', files[0]);
-    this.http.post('/api/upload', formData)
-      .subscribe(body => {
-        this.message = "submit";
-        console.log(body)
-        this.imgUrl = (body as any).imgUrl
-      });
-  }
+
 }

@@ -5,12 +5,14 @@ import { CategoryComponent } from './category.component';
 import { ModalModule } from '../_modal/modal.module';
 import { FormsModule } from '@angular/forms';
 import { UploadComponent } from '../upload/upload.component';
+import { CategoryCreateModalComponent } from './category-create-modal/category-create-modal.component';
 
 @NgModule({
   declarations: [
     CategoryItemComponent,
     CategoryComponent,
-    UploadComponent
+    UploadComponent,
+    CategoryCreateModalComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,8 @@ import { UploadComponent } from '../upload/upload.component';
   exports: [
     CategoryItemComponent,
     CategoryComponent,
+    UploadComponent,
+    CategoryCreateModalComponent
   ]
 })
 export class CategotyModule { }
