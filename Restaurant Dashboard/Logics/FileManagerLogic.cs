@@ -19,7 +19,7 @@ namespace Restaurant_Dashboard.Logics
         {
             var blobContainer = _blobServiceClient.GetBlobContainerClient("upload-file");
 
-            var blobClient = blobContainer.GetBlobClient(model.ImageFile.FileName + (new DateTime()).ToString());
+            var blobClient = blobContainer.GetBlobClient(model.ImageFile.FileName);
 
             await blobClient.UploadAsync(model.ImageFile.OpenReadStream());
         }
