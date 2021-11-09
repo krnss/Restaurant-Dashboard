@@ -1,31 +1,25 @@
-<div class="add p-3">
+<div class="add p-3" *ngIf="isAdminPanel">
   <div>
     <button type="button" class="btn btn-success" (click)="openModal('craete-edit-modal')">Add Catecory</button>
   </div>
 </div>
 <div class="category-gread">
-  <app-category-item
-    [name]="category.name"
-    [imgUrl]="category.imgUrl"
-  >
-  </app-category-item>
   <app-category-item *ngFor="let cat of categories"
     [name]="cat.name"
     [imgUrl]="cat.imgUrl"
+    [isAdminPanel]="isAdminPanel"
   >
   </app-category-item>
-
-
-
 </div>
 
-<jw-modal id="craete-edit-modal">
+<jw-modal id = {{createCategryModal}} *ngIf="isAdminPanel">
   <div header>
-    <button (click)="closeModal('craete-edit-modal');">Close</button>
+    <button (click)="closeModal(createCategryModal);">Close</button>
   </div>
   <div body>
     <app-category-create-modal
-    (createNewCategory)="loadAllData()">
+    (createNewCategory)="loadAllData()"
+    (clouseModal)="closeModal(createCategryModal);">
 
     </app-category-create-modal>
   </div>

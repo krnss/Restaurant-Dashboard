@@ -16,6 +16,7 @@ export class CategoryCreateModalComponent implements OnInit {
   public response: {dbPath: ''};
 
   @Output() createNewCategory = new EventEmitter();
+  @Output() clouseModal = new EventEmitter();
 
   constructor(
     private categoryDataService:DataService) {
@@ -34,6 +35,8 @@ export class CategoryCreateModalComponent implements OnInit {
 
       this.categoryDataService.create(this.category).subscribe(()=>{
         this.createNewCategory.emit();
+        this.clouseModal.emit();
+        this.category = new Category(0);
       })
     });
   }

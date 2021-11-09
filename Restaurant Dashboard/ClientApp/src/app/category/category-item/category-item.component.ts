@@ -9,6 +9,7 @@ export class CategoryItemComponent implements OnInit {
 
   @Input() public name:string;
   @Input() public imgUrl:string;
+  @Input() public isAdminPanel:boolean;
 
   constructor() { }
 

@@ -8,6 +8,6 @@ namespace Restaurant_Dashboard.Logics
 {
     public interface IFileManagerLogic
     {
-        Task Upload(FileModel model);
+        Task<string> Upload(FileModel model);
     }
 }

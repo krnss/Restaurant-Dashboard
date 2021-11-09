@@ -17,27 +17,24 @@ namespace Restaurant_Dashboard.Controllers
     public class ImgController : ControllerBase
     {
         private readonly IFileManagerLogic _fileManagerLogic;
-        private readonly string _urlPrefix;
 
         public ImgController(IFileManagerLogic fileManagerLogic)
         {
             _fileManagerLogic = fileManagerLogic;
-            _urlPrefix = "https://restorantblobs.blob.core.windows.net/upload-file/";
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Upload([FromForm] FileModel file)
         {
             if (file.ImageFile != null)
             {
-                await _fileManagerLogic.Upload(file);
+                var url = await _fileManagerLogic.Upload(file);
+                return Ok(new { imgUrl = url });
             }
             else
             {
                 return BadRequest();
             }
-            return Ok(new { imgUrl = _urlPrefix + file.ImageFile.FileName });
         }
     }
 }

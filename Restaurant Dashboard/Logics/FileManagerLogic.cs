@@ -15,13 +15,17 @@ namespace Restaurant_Dashboard.Logics
             _blobServiceClient = blobServiceClient;
         }
 
-        public async Task Upload(FileModel model)
+        public async Task<string> Upload(FileModel model)
         {
+            string fileName = DateTime.UtcNow.ToString() + model.ImageFile.FileName;
+
             var blobContainer = _blobServiceClient.GetBlobContainerClient("upload-file");
 
-            var blobClient = blobContainer.GetBlobClient(model.ImageFile.FileName);
+            var blobClient = blobContainer.GetBlobClient(fileName);
 
             await blobClient.UploadAsync(model.ImageFile.OpenReadStream());
+
+            return blobClient.Uri.AbsoluteUri;
         }
     }
 }
