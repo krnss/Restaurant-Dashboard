@@ -2,7 +2,7 @@ import { HttpEventType } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'src/models/category';
 import { DataService } from 'src/service/data.service';
-import { ModalService } from '../_modal/modal.service';
+import { ModalService } from '../components/_modal/modal.service';
 
 @Component({
   selector: 'app-category',
@@ -11,7 +11,7 @@ import { ModalService } from '../_modal/modal.service';
 })
 export class CategoryComponent implements OnInit {
   categories:Category;
-
+  @Input() isAdminPanel:boolean=true;
   categoryForCreate:Category;
   imageSrc: string | ArrayBuffer;
 
@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
   createCategryModal:string="craete-category-modal"
 
   constructor(
-    private modalService: ModalService,
+    private _modalService: ModalService,
     private categoryDataService:DataService
     ) {
       this.categoryDataService.setUrl("/api/categories");
@@ -35,11 +35,11 @@ export class CategoryComponent implements OnInit {
   }
 
   openModal(id: string) {
-    this.modalService.open(id);
+    this._modalService.open(id);
     this.categoryForCreate = new Category();
   }
 
   closeModal(id: string) {
-    this.modalService.close(id);
+    this._modalService.close(id);
   }
 }

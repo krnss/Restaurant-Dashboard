@@ -3,8 +3,7 @@
   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Category name" [(ngModel)]="category.name">
 </div>
 <div class="mb-3">
-  <input type="file" name="" id="" (change)="readURL($event)">
-  <img src={{this.imageSrc}} alt="">
+  <app-upload #upload></app-upload>
 </div>
 
 <button type="submit" class="btn btn-primary" (click)="craeteCategory()" >Submit</button>

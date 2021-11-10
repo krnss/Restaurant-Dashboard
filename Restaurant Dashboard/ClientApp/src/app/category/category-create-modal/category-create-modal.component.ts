@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Category } from 'src/models/category';
 import { DataService } from 'src/service/data.service';
 
@@ -18,6 +18,8 @@ export class CategoryCreateModalComponent implements OnInit {
   @Output() createNewCategory = new EventEmitter();
   @Output() clouseModal = new EventEmitter();
 
+  @ViewChild('upload', {static: true}) uploadComponent;
+
   constructor(
     private categoryDataService:DataService) {
     this.categoryDataService.setUrl("/api/categories");
@@ -28,7 +30,8 @@ export class CategoryCreateModalComponent implements OnInit {
   }
 
   craeteCategory(){
-    this.categoryDataService.saveImg(this.file).subscribe(data => {
+
+    this.uploadComponent.saveFile().subscribe(data => {
       console.log((data as any).imgUrl);
       this.category.imgUrl = (data as any).imgUrl;
       console.log(this.category);

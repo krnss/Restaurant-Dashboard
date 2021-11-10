@@ -1,16 +1,16 @@
 <div class="add p-3" *ngIf="isAdminPanel">
   <div>
-    <button type="button" class="btn btn-success" (click)="openModal('craete-edit-modal')">Add Catecory</button>
+    <button type="button" class="btn btn-success" (click)="openModal(createCategryModal)">Add Catecory</button>
   </div>
 </div>
-<div class="category-gread">
-  <app-category-item *ngFor="let cat of categories"
+<app-gread >
+  <app-category-item body *ngFor="let cat of categories"
     [name]="cat.name"
     [imgUrl]="cat.imgUrl"
     [isAdminPanel]="isAdminPanel"
   >
   </app-category-item>
-</div>
+</app-gread>
 
 <jw-modal id = {{createCategryModal}} *ngIf="isAdminPanel">
   <div header>

@@ -7,8 +7,10 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { DataService } from 'src/service/data.service';
 import { AppRoutingModule } from './app-routing.module';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { CategotyModule } from './category/categoty.module';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { GreadComponent } from './components/gread/gread.component';
+import { GreadModule } from './components/gread/gread.module';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,14 @@ import { CategotyModule } from './category/categoty.module';
     NavMenuComponent,
     HomeComponent,
     AdminPanelComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    CategotyModule
+    CategotyModule,
+    GreadModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
