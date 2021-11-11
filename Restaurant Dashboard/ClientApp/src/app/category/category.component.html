@@ -13,14 +13,13 @@
 </app-gread>
 
 <jw-modal id = {{createCategryModal}} *ngIf="isAdminPanel">
-  <div header>
-    <button (click)="closeModal(createCategryModal);">Close</button>
+  <div title>
+    Add Category
   </div>
   <div body>
     <app-category-create-modal
     (createNewCategory)="loadAllData()"
     (clouseModal)="closeModal(createCategryModal);">
-
     </app-category-create-modal>
   </div>
 </jw-modal>

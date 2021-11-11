@@ -1,3 +1,10 @@
+<img *ngIf="imageSrc" src={{imageSrc}} alt="">
 
-  <input type="file" name="" id="" (change)="readURL($event)">
-  <img src={{this.imageSrc}} alt="">
+<input type="file" name="" id="file" (change)="readURL($event)" accept="image/*">
+<label for="file">
+  <i class="bi bi-images"></i>
+  Chouse a Photo
+</label>
+
+
+

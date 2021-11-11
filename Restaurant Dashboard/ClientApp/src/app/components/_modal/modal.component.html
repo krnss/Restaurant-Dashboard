@@ -1,6 +1,9 @@
 ﻿<div class="jw-modal">
   <div class="jw-modal-heder">
-    <ng-content select="[header]"></ng-content>
+    <h5>
+      <ng-content select="[title]"></ng-content>
+    </h5>
+    <i class="bi bi-x clouse" (click)="close()"></i>
   </div>
   <div class="jw-modal-body">
       <ng-content select="[body]"></ng-content>

@@ -7,4 +7,26 @@
 img{
   height: 200px;
   width: 200px;
+  left: 50%;
+  transform: translate(-50%);
+  position: relative;
+  padding: 5px;
+}
+input[type="file"]{
+  display: none;
+}
+label{
+  color: white;
+  height: 60px;
+  width: 250px;
+  background-color: #f5af09;
+  margin: auto;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+label i{
+  margin-right:5px;
 }
