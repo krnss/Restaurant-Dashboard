@@ -32,14 +32,14 @@ export class CategoryCreateModalComponent implements OnInit {
   craeteCategory(){
 
     this.uploadComponent.saveFile().subscribe(data => {
-      console.log((data as any).imgUrl);
       this.category.imgUrl = (data as any).imgUrl;
-      console.log(this.category);
 
       this.categoryDataService.create(this.category).subscribe(()=>{
         this.createNewCategory.emit();
         this.clouseModal.emit();
         this.category = new Category(0);
+
+        this.uploadComponent.remuveFile();
       })
     });
   }

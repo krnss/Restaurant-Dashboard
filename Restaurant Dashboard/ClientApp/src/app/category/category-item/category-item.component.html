@@ -1,5 +1,18 @@
-<div class="category-item">
-  <img src={{imgUrl}} alt="">
-  <h4>{{name}}</h4>
-  <p *ngIf="isAdminPanel">isAdminPanel</p>
+<div class="card">
+  <div class="content">
+    <div class="imgBx">
+      <img src={{category.imgUrl}}>
+    </div>
+    <div class="contentBx">
+      <h3>{{category.name}} <span>45$</span></h3>
+    </div>
+  </div>
+  <ul class="sci">
+    <li>
+      <i class="bi bi-trash" (click)="deleteCategory.emit(category.id)"></i>
+    </li>
+    <li>
+      <i class="bi bi-pencil"></i>
+    </li>
+  </ul>
 </div>

@@ -4,10 +4,10 @@
   </div>
 </div>
 <app-gread >
-  <app-category-item body *ngFor="let cat of categories"
-    [name]="cat.name"
-    [imgUrl]="cat.imgUrl"
+  <app-category-item body *ngFor="let category of categories"
+    [category]="category"
     [isAdminPanel]="isAdminPanel"
+    (deleteCategory)="deleteCategory($event)"
   >
   </app-category-item>
 </app-gread>

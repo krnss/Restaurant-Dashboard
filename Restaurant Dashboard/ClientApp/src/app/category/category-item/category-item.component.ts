@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Category } from 'src/models/category';
 
 @Component({
   selector: 'app-category-item',
@@ -7,9 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CategoryItemComponent implements OnInit {
 
-  @Input() public name:string;
-  @Input() public imgUrl:string;
+  @Input() public category:Category;
   @Input() public isAdminPanel:boolean;
+
+  @Output() deleteCategory = new EventEmitter<string>();
 
   constructor() { }
 

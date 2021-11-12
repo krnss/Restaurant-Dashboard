@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UploadService } from './upload.service';
 
 
@@ -12,7 +13,6 @@ export class UploadComponent implements OnInit {
 
   public progress: number;
   public message: string;
-  public imgUrl:string="google";
 
   file: File;
   imageSrc: string | ArrayBuffer;
@@ -35,7 +35,14 @@ export class UploadComponent implements OnInit {
   }
 
   public saveFile(){
+    if(this.file == null)
+      return Observable;
+
     return this.uploadService.saveImg(this.file);
   }
 
+  public remuveFile(){
+    this.file = null;
+    this.imageSrc = undefined;
+  }
 }

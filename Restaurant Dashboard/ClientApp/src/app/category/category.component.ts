@@ -10,7 +10,7 @@ import { ModalService } from '../components/_modal/modal.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  categories:Category;
+  categories:Category[];
   @Input() isAdminPanel:boolean=true;
   categoryForCreate:Category;
   imageSrc: string | ArrayBuffer;
@@ -30,7 +30,12 @@ export class CategoryComponent implements OnInit {
   }
   loadAllData(){
     this.categoryDataService.getAll().subscribe(data=>{
-      this.categories = data;
+      this.categories = data as Category[];
+    });
+  }
+  deleteCategory(categoryId){
+    this.categoryDataService.delete(categoryId).subscribe(data=>{
+      this.categories = this.categories.filter(({ id }) => id !== categoryId);
     });
   }
 
