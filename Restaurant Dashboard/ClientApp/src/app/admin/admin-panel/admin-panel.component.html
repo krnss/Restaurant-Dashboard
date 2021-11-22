@@ -1,4 +1,16 @@
 <p>admin-panel works!</p>
 <div class="">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'text-dark': href.includes('category')}" [routerLink]="['category']">Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'text-dark': href.includes('product')}" [routerLink]="['product']">Product</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <router-outlet></router-outlet>
 </div>

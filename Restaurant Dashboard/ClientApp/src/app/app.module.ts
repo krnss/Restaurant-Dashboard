@@ -11,13 +11,15 @@ import { CategotyModule } from './category/categoty.module';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { GreadComponent } from './components/gread/gread.component';
 import { GreadModule } from './components/gread/gread.module';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+      ProductComponent
    ],
   imports: [
     BrowserModule,

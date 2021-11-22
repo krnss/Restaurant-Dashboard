@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor() { }
+  href:string = "";
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd) {
+        this.href = this.router.url
+      }
+    });
+   }
 
   ngOnInit(): void {
+
   }
 
 }

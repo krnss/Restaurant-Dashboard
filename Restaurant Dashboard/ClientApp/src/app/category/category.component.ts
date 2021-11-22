@@ -33,7 +33,7 @@ export class CategoryComponent implements OnInit {
       this.categories = data as Category[];
     });
   }
-  deleteCategory(categoryId){
+  deleteCategory(categoryId:number){
     this.categoryDataService.delete(categoryId).subscribe(data=>{
       this.categories = this.categories.filter(({ id }) => id !== categoryId);
     });
