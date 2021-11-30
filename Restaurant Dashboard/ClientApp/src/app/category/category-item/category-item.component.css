@@ -59,27 +59,3 @@
 	font-weight: 300;
 	text-transform: initial;
 }
-
-.card .sci {
-	position: absolute;
-	top: 0;
-  right: 0;
-  margin-bottom: 5px;
-}
-
-.card .sci li {
-	list-style: none;
-	margin: 0 10px;
-	/* transform: translateY(10px); */
-	transition: 0.5s;
-	opacity: 0;
-}
-
-.card:hover .sci li {
-	transform: translateY(0px);
-	opacity: 1;
-}
-
-.card .sci li i {
-  cursor: pointer;
-}

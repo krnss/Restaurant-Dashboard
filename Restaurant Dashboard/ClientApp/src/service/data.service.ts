@@ -6,9 +6,9 @@ import { IProduct } from 'src/interface/iproduct';
 @Injectable()
 export class DataService implements IDataService {
 
-  private _url;
+  protected _url;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
   getAll() {
     return this.http.get(this._url);
@@ -28,16 +28,5 @@ export class DataService implements IDataService {
 
   delete(id: number) {
     return this.http.delete(this._url + '/' + id);
-  }
-
-  saveImg(file:File){
-    const formData = new FormData();
-    formData.append('ImageFile', file);
-
-    return this.http.post('/api/upload', formData);
-  }
-
-  public setUrl(url){
-    this._url = url
   }
 }

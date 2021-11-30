@@ -1,6 +1,7 @@
 .gread{
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
   grid-row-gap: 1em;
 }

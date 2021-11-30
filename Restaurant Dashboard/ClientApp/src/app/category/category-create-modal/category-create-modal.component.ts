@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Category } from 'src/models/category';
+import { CategoryService } from 'src/service/category.service';
 import { DataService } from 'src/service/data.service';
 
 @Component({
@@ -21,9 +22,7 @@ export class CategoryCreateModalComponent implements OnInit {
   @ViewChild('upload', {static: true}) uploadComponent;
 
   constructor(
-    private categoryDataService:DataService) {
-    this.categoryDataService.setUrl("/api/categories");
-  }
+    private _categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.category = new Category(0);
@@ -34,7 +33,7 @@ export class CategoryCreateModalComponent implements OnInit {
     this.uploadComponent.saveFile().subscribe(data => {
       this.category.imgUrl = (data as any).imgUrl;
 
-      this.categoryDataService.create(this.category).subscribe(()=>{
+      this._categoryService.create(this.category).subscribe(()=>{
         this.createNewCategory.emit();
         this.clouseModal.emit();
         this.category = new Category(0);

@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Restaurant_Dashboard.Models
 {
     public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }    // название 
-        public string Company { get; set; } // производитель
-        public int Price { get; set; }  // цена
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string Description { get; set; }
+        public string ImgUrl { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }

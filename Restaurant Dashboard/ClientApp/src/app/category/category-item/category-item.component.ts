@@ -9,9 +9,6 @@ import { Category } from 'src/models/category';
 export class CategoryItemComponent implements OnInit {
 
   @Input() public category:Category;
-  @Input() public isAdminPanel:boolean;
-
-  @Output() deleteCategory = new EventEmitter<number>();
 
   constructor() { }
 

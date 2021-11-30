@@ -1,7 +1,7 @@
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UploadService } from './upload.service';
+import { UploadService } from '../../../service/upload.service';
 
 
 @Component({

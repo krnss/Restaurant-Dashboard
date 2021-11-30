@@ -1,0 +1,34 @@
+<div class="add p-3">
+  <div>
+    <button type="button" class="btn btn-success" (click)="openModal(createCategryModal)">Add Catecory</button>
+  </div>
+</div>
+<app-gread>
+  <div class="admin-card" *ngFor="let category of categories">
+    <app-category-item body
+    [category]="category"
+    >
+    </app-category-item>
+    <ul class="sci">
+      <li>
+        <i class="bi bi-trash" (click)="deleteCategory(category.id)"></i>
+      </li>
+      <li>
+        <i class="bi bi-pencil" (click)="editCategory(category.name);"></i>
+      </li>
+    </ul>
+  </div>
+
+</app-gread>
+
+<jw-modal id = {{createCategryModal}}>
+  <div title>
+    Add Category
+  </div>
+  <div body>
+    <app-category-create-modal
+    (createNewCategory)="loadAllData()"
+    (clouseModal)="closeModal(createCategryModal);">
+    </app-category-create-modal>
+  </div>
+</jw-modal>
