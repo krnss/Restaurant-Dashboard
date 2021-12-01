@@ -12,14 +12,17 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { GreadComponent } from './components/gread/gread.component';
 import { GreadModule } from './components/gread/gread.module';
 import { ProductComponent } from './product/product.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
     AdminPanelComponent,
-      ProductComponent
+    ProductComponent,
+    DeleteModalComponent
    ],
   imports: [
     BrowserModule,
@@ -27,8 +30,10 @@ import { ProductComponent } from './product/product.component';
     FormsModule,
     AppRoutingModule,
     CategotyModule,
-    GreadModule
+    GreadModule,
+    NgbModule,
   ],
+  entryComponents: [DeleteModalComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })

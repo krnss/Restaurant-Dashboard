@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteModalComponent } from 'src/app/components/delete-modal/delete-modal.component';
 import { Category } from 'src/models/category';
 import { CategoryService } from 'src/service/category.service';
 import { ModalService } from 'src/service/modal.service';
@@ -18,7 +20,8 @@ export class CategoryAdminListComponent implements OnInit {
 
   constructor(
     private _modalService: ModalService,
-    private _categoryService: CategoryService
+    private _categoryService: CategoryService,
+    private ngbModal: NgbModal,
     ) { }
 
   ngOnInit(): void {
@@ -36,8 +39,12 @@ export class CategoryAdminListComponent implements OnInit {
   }
 
   deleteCategory(categoryId:number){
-    this._categoryService.delete(categoryId).subscribe(data=>{
-      this.categories = this.categories.filter(({ id }) => id !== categoryId);
+    const modalRef = this.ngbModal.open(DeleteModalComponent, {size: 'sm'});
+    modalRef.result.then((result) => {
+      if(result)
+        this._categoryService.delete(categoryId).subscribe(data=>{
+          this.categories = this.categories.filter(({ id }) => id !== categoryId);
+        });
     });
   }
 
